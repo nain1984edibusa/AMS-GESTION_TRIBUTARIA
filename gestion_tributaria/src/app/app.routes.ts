@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: 'orders',
-        loadComponent: () => import('./../app/business/orders/orders.component'),
+        path: 'planes',
+        loadComponent: () => import('./business/planes/planes.component'),
     },
     {
         path: 'customers',
@@ -11,7 +11,7 @@ export const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/orders',
+        redirectTo: '/planes',
         pathMatch: 'full'
     }
 ];

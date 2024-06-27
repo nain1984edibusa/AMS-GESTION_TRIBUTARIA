@@ -5,6 +5,7 @@ export const environment = {
     ordersUrl: 'http://localhost:8081/api/v1/tributo',
     tipoContribuyenteUrl: 'http://localhost:8081/api/v1/tipo-contribuyente',
     tipoProcesoUrl: 'http://localhost:8081/api/v1/tipo-proceso',
-    tipoPlanUrl: 'http://localhost:8081/api/v1/tipo-plan'
+    tipoPlanUrl: 'http://localhost:8081/api/v1/tipo-plan',
+    planEmailInscripcionUrl: 'http://localhost:8085/api/v1/email-inscripcion'
   };
   

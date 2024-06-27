@@ -1,0 +1,153 @@
+<div class="container py -5">
+    <div class="container-flat-form">
+        <div class="title-flat-form title-flat-blue">Ejecución planes de control tributario</div>
+        <form id="formulario_tramite" class="form-padding">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="instrucciones_formularios_ct">Recuerde que los campos marcados con <span
+                            class="sp-requerido">*</span> son requeridos.</p>
+                </div>
+                <div class="group-material">
+                    <span>Tipo de proceso<span class="sp-requerido">*</span></span>
+                    <select name="id_tipo_proceso" id="id_tipo_proceso" class="tooltips-general material-control"
+                        required="" data-toggle="tooltip" data-placement="top" title="Elija el tipo de proceso"
+                        onchange="javascript:seleccionarMedida();">
+                        <option value="" disabled="" selected="">Selecciona tipo de proceso</option>
+                        <option [value]="dato" *ngFor="let dato of tipoProcesoList">
+                            {{dato.tipoProcesoId}}
+                            {{dato.descripcionProceso}}
+                        </option>
+                    </select>
+                    <input type="hidden" name="tipo_proceso" id="tipo_proceso" />
+                </div>
+
+                <!-- <label for="cars">Seleccionar Tipo de Proceso:</label>
+                <select class="form-control" name="miselect" id="miselect" (change)="capturar()">
+                    <option [value]="dato" *ngFor="let dato of ordersList">
+                        {{dato.tributoId}}
+                        {{dato.descripcionTributo}}
+                    </option>
+                </select> -->
+                <div class="group-material">
+                    <span>Tipo de plan<span class="sp-requerido">*</span></span>
+                    <select name="id_tipo_plan" id="id_tipo_plan" class="tooltips-general material-control" required=""
+                        data-toggle="tooltip" data-placement="top" title="Elija tipo de plan"
+                        onchange="javascript:seleccionarMedida();">
+                        <option value="" disabled="" selected="">Selecciona el tipo de plan</option>
+                        <option [value]="dato" *ngFor="let dato of tipoPlanList">
+                            {{dato.tipoPlanId}}
+                            {{dato.descripcionPlan}}
+                        </option>
+                    </select>
+                    <input type="hidden" name="unidad_medida" id="unidad_medida" />
+                </div>
+
+                <div class="group-material">
+                    <span>Tipo de contribuyente<span class="sp-requerido">*</span></span>
+                    <select name="id_tipo_contribuyente" id="id_tipo_contribuyente"
+                        class="tooltips-general material-control" required="" data-toggle="tooltip" data-placement="top"
+                        title="Elija tipo de contribuyente" onchange="">
+                        <option value="" disabled="" selected="">Selecciona el tipo de contribuyente</option>
+                        <option [value]="dato" *ngFor="let dato of tipoContribuyenteList">
+                            {{dato.tipoContribuyenteId}}
+                            {{dato.descripcionContribuyente}}
+                        </option>
+                    </select>
+                    <input type="hidden" name="unidad_medida" id="unidad_medida" />
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="group-material">
+                        <span>Ejercicio fiscal<span class="sp-requerido">*</span></span>
+                        <textarea id="nombre_propuesta" name="nombre_propuesta" rows="2"
+                            class="tooltips-general material-control" placeholder="Persuasivo " required=""
+                            data-toggle="tooltip" data-placement="top" title="Escriba la descripcion del plan"
+                            onKeyUp="this.value = this.value.toUpperCase();"></textarea>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="group-material">
+                        <span>Descripción del Plan<span class="sp-requerido">*</span></span>
+                        <textarea id="nombre_propuesta" name="nombre_propuesta" rows="2"
+                            class="tooltips-general material-control" placeholder="Persuasivo " required=""
+                            data-toggle="tooltip" data-placement="top" title="Escriba la descripcion del plan"
+                            onKeyUp="this.value = this.value.toUpperCase();"></textarea>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+                <!-- <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="group-material">
+                        <input id="direccion" name="direccion" type="text" class="material-control tooltips-general" placeholder="Por ejemplo: Benalcázar 2340 y 9 de Octubre" required="" maxlength="100" data-toggle="tooltip" data-placement="top" title="Escriba la dirección" onKeyUp="this.value = this.value.toUpperCase();"> 
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Dirección <span class="sp-requerido">*</span></label>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="group-material">
+                        <input id="direccion" name="direccion" type="text" class="material-control tooltips-general" placeholder="Por ejemplo: Benalcázar 2340 y 9 de Octubre" required="" maxlength="100" data-toggle="tooltip" data-placement="top" title="Escriba la dirección" onKeyUp="this.value = this.value.toUpperCase();"> 
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Dirección <span class="sp-requerido">*</span></label>
+                    </div>
+                </div>  -->
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="group-material">
+                        <input id="area_investigacion" name="area_investigacion" min="0" type="number"
+                            class="tooltips-general material-control" placeholder="Por ejemplo: 10" required=""
+                            maxlength="70" data-toggle="tooltip" data-placement="top" title="Escriba la cantidad"
+                            onKeyUp="this.value = this.value.toUpperCase();">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Valor desde<span class="sp-requerido">*</span></label>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="group-material">
+                        <input id="area_investigacion" name="area_investigacion" min="0" type="number"
+                            class="tooltips-general material-control" placeholder="Por ejemplo: 10" required=""
+                            maxlength="70" data-toggle="tooltip" data-placement="top" title="Escriba la cantidad"
+                            onKeyUp="this.value = this.value.toUpperCase();">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Valor hasta<span class="sp-requerido">*</span></label>
+                    </div>
+                </div>
+                <div class="form-group">
+
+
+                </div>
+
+            </div>
+            <!-- <button type="button"  class="btn btn-primary" (click)="fun()">Click me!</button> -->
+
+            <h3>Registros ejecutados en el plan</h3>
+            <!-- <table  class="row-border hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"> -->
+                <table id="example" class="cell-border" class="table mx-auto">
+                <thead>
+                <tr>
+                    <th>RUC</th>
+                    <th>Razón Social</th>
+                    <th>Periodo</th>
+                    <th>Base Imponible</th>
+                    <th>Total Patrimonio Neto</th>
+                    <th>Potencial Recaudar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let user of planListEmailInscripcion">
+                    <td>{{ user.numeroRuc }}</td>
+                    <td>{{ user.razonSocial }}</td>
+                    <td>{{ user.periodo }}</td>
+                    <td>{{ user.baseImponible }}</td>
+                    <td>{{ user.totalPatrimonioNeto }}</td>
+                    <td>{{ user.potencialRecaudar }}</td>
+                  </tr> -->
+            </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
