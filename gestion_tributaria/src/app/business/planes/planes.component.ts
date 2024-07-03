@@ -28,94 +28,32 @@ export default class PlanesComponent implements OnInit {
   data: any = [];
   dtTrigger: Subject<any> = new Subject();
 
-
   dataTable: any;
-
   apiData: any;
+
+  loginObj: any = {
+    "descripcion_plan": ""
+  };
 
   constructor(private planesService: PlanesService,
     private httpClient: HttpClient
   ) { }
 
+
+  
   ngOnInit(): void {
     this.getTipoContribuyente()
     this.getTipoProceso()
     this.getTipoPlan()
-    this.getPlanes() 
-    
-    this.dtOptions = {
-      // ajax: 'http://localhost:8081/api/v1/tributo',
-      //ajax: './data.json',
-      language: {
-        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/es-ES.json'
-      },
-
-      pagingType: "full_numbers",
-      pageLength: 2
-    };
-
-      // this.httpClient.get('http://localhost:8085/api/v1/email-inscripcion')
-      // .subscribe((result: any) => {
-      //   console.log(result);
-      //   // this.data = result.data;
-      //   // this.dtTrigger.next(result.data);
-      // })
-
-      
-
-     
-
-
-    // this.httpClient
-    // .get('https://raw.githubusercontent.com/l-lin/angular-datatables/master/demo/src/data/data.json')
-    // .subscribe({
-    //   next: (result) => {
-    //     this.users$ = result;
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //   }
-    // })
-
-
-
-    // this.httpClient
-    // .get('')
-    // .subscribe(data => {
-    //   console.log(data);
-    //   this.users$ = data;
-    //   this.dtTrigger.next(data);
-    // })
-
-    // this.httpClient
-    // .get('https://raw.githubusercontent.com/l-lin/angular-datatables/master/demo/src/data/data.json')
-    // .subscribe(resp => {
-    //   console.log(resp);
-    //   this.users$ = resp;
-    //   this.dtTrigger.next(resp);
-    // })
-
-    // this.httpClient
-    //   .get('https://raw.githubusercontent.com/l-lin/angular-datatables/master/demo/src/data/data.json')
-    //   .subscribe({
-    //     next: (result) => {
-    //       this.users$ = result;
-    //     },
-    //     error: (err) => {
-    //       console.log(err);
-    //     }
-    //   })
-
-    //this.getTributos();
-
-
-
+    //this.getPlanes() 
   }
 
-
   getPlanes() {
+    debugger
+    alert('hola');
     this.planesService.getFindAllPlanInscripcion().subscribe({
       next: (result) => {
+        debugger
         console.log(result);
         this.apiData = result;
 
@@ -188,16 +126,22 @@ export default class PlanesComponent implements OnInit {
     })
   }
 
-  fun(): void {
 
-    alert('hola');
-  }
+  // onLogin() {
+  //   debugger;
+  //   alert('hola');
+  //   this.planesService.getFindAllPlanInscripcion().subscribe((res:any)=>{
+  //     if(res.result) {
+  //       //localStorage.setItem('hotelUser',JSON.stringify(res.data));
+  //       //this.router.navigateByUrl('/dashboard');
+  //     } else {
+  //       alert('Check User Credentials')
+  //     }
+  //   },
+  //   error=> {
 
-
-
-
-
-
+  //   })
+  // }
   capturar() {
 
   }
