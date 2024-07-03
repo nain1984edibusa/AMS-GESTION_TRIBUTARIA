@@ -133,34 +133,30 @@
                     <p class="text-center">
                         <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i
                                 class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
-                        <button type="button" id="guardar" value="Guardar"
-                            class="btn btn-primary" (click)="getPlanes()"><i class="zmdi zmdi-arrow-right"></i> &nbsp;&nbsp; Ejecutar
+                        <button type="button" id="guardar" value="Guardar" class="btn btn-primary"
+                            (click)="getPlanes()"><i class="zmdi zmdi-arrow-right"></i> &nbsp;&nbsp; Ejecutar
                             Plan</button>
                         <!--<button type="button" value="Agregar"  id="agregar" class="btn btn-success"><i class="zmdi zmdi-plus-circle"></i> &nbsp; Agregar</button>-->
                     </p>
                 </div>
             </div>
-            
-            <!-- <button type="button" class="btn btn-primary" (click)="fun()">Ejecutar Plan</button> -->
-
-            <!-- <h3>Registros ejecutados en el plan</h3> -->
-            <div class="col-xs-12">
-                <legend><i class="zmdi zmdi-calendar-alt"></i> &nbsp; Fecha y Hora de Atención</legend>
-            </div>
-            <!-- <table  class="row-border hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"> -->
-            <table id="example" class="cell-border" class="table mx-auto">
-                <thead>
-                    <tr>
-                        <th>RUC</th>
-                        <th>Razón Social</th>
-                        <th>Periodo</th>
-                        <th>Base Imponible</th>
-                        <th>Total Patrimonio Neto</th>
-                        <th>Potencial Recaudar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- <tr *ngFor="let user of planListEmailInscripcion">
+            <div id="divTributo" class="col-xs-5" style="display:none">
+                <div class="col-xs-12">
+                    <legend><i class="zmdi zmdi-grid"></i> &nbsp; Listado de planes</legend>
+                </div>
+                <table id="example" class="cell-border" class="table mx-auto">
+                    <thead>
+                        <tr>
+                            <th>RUC</th>
+                            <th>Razón Social</th>
+                            <th>Periodo</th>
+                            <th>Base Imponible</th>
+                            <th>Total Patrimonio Neto</th>
+                            <th>Potencial Recaudar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let user of planListEmailInscripcion">
                     <td>{{ user.numeroRuc }}</td>
                     <td>{{ user.razonSocial }}</td>
                     <td>{{ user.periodo }}</td>
@@ -168,8 +164,9 @@
                     <td>{{ user.totalPatrimonioNeto }}</td>
                     <td>{{ user.potencialRecaudar }}</td>
                   </tr> -->
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </form>
     </div>
 </div>

@@ -51,6 +51,7 @@ export default class PlanesComponent implements OnInit {
   getPlanes() {
     debugger
     alert('hola');
+    var objDivTributo = $('#divTributo');
     this.planesService.getFindAllPlanInscripcion().subscribe({
       next: (result) => {
         debugger
@@ -58,6 +59,7 @@ export default class PlanesComponent implements OnInit {
         this.apiData = result;
 
         this.initializeDataTable();
+        objDivTributo.attr("style", "display:;");
       },
       error: (err) => {
         console.log(err);
