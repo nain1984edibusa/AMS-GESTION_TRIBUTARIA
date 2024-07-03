@@ -11,7 +11,7 @@ export class OrdersService {
   ORDERS_URL: string = environment.ordersUrl;
   constructor(private httpClient: HttpClient) { }
   
-  getOrders(): Observable<any> {
+  getOrders(obj: any): Observable<any> {
     return this.httpClient.get(this.ORDERS_URL).pipe(res=> res);
   }
 }

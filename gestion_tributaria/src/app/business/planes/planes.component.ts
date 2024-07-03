@@ -6,13 +6,14 @@ import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common
 import { DataTablesModule } from 'angular-datatables';
 import { Config } from 'datatables.net';
 import { Subject } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 //import "rxjs/add/operator/map";
 
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule, DataTablesModule],
+  imports: [CommonModule, DataTablesModule, FormsModule] ,
   templateUrl: './planes.component.html',
   styleUrl: './planes.component.scss'
 })
@@ -31,9 +32,12 @@ export default class PlanesComponent implements OnInit {
   dataTable: any;
   apiData: any;
 
-  loginObj: any = {
-    "descripcion_plan": ""
+  planObj: any = {
+    "descripcion_plan": "",
+    "valor_desde": "",
+    "valor_hasta": ""
   };
+
 
   constructor(private planesService: PlanesService,
     private httpClient: HttpClient
@@ -47,12 +51,12 @@ export default class PlanesComponent implements OnInit {
     this.getTipoPlan()
     //this.getPlanes() 
   }
-
+  // this.ordersService.getOrders(this.bookingObj).subscribe((res: any) => {
   getPlanes() {
     debugger
     alert('hola');
     var objDivTributo = $('#divTributo');
-    this.planesService.getFindAllPlanInscripcion().subscribe({
+    this.planesService.getFindAllPlanInscripcion(this.planObj).subscribe({
       next: (result) => {
         debugger
         console.log(result);

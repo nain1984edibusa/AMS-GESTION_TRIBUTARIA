@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { OrdersService } from './services/orders.service';
 import { OrdersInterface } from './interfaces/orders.interface';
 import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule , FormsModule],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss'
 })
@@ -15,19 +16,53 @@ export default class OrdersComponent {
 
   ordersList: OrdersInterface[]=[];
 
+
+  bookingObj: any  = {
+    "name": "",
+    "mobileNo": "",
+    "email": "",
+    "aadharNo": "",
+    "city": "",
+    "address": "",
+    "bookingId": 0,
+    "roomId": 0,
+    "customerId": 0,
+    "bookingFromDate": "",
+    "bookingToDate": "",
+    "createdDate": new Date(),
+    "bookingRate": 0,
+    "naration": "",
+    "createdBy": 0,
+    "hotelBookingDetails": [
+      
+    ]
+  };
+
+ 
+
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {
-    this.getOrders()
   }
 
-  getOrders() {
-    this.ordersService.getOrders().subscribe({
-      next: (result) => {
-        this.ordersList = result;
-      },
-      error: (err)=>{
-        console.log(err);
+  loadRooms() {
+    
+  }
+
+  addGuest() {
+   
+  }
+
+  removeGuest(index:number) {
+  }
+
+  onSaveBooking() {
+    debugger
+    this.ordersService.getOrders(this.bookingObj).subscribe((res: any) => {
+      if(res.result) {
+        alert('Booking Created')
+      } else {
+        alert(res.message)
       }
     })
   }

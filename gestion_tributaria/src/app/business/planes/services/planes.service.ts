@@ -31,7 +31,7 @@ export class PlanesService {
     return this.httpClient.get(this.TIPOPLAN_URL).pipe(res => res);
   }
 
-  getFindAllPlanInscripcion(): Observable<any> {
+  getFindAllPlanInscripcion(obj: any): Observable<any> {
     return this.httpClient.get(this.PLANEMAILINSCRIPCION_URL).pipe(res => res);
   }
 

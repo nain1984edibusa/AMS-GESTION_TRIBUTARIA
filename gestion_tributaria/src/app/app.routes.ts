@@ -10,6 +10,10 @@ export const routes: Routes = [
         loadComponent: () => import('./../app/business/customers/customers.component'),
     },
     {
+        path: 'orders',
+        loadComponent: () => import('./../app/business/orders/orders.component'),
+    },
+    {
         path: '',
         redirectTo: '/planes',
         pathMatch: 'full'

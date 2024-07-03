@@ -59,12 +59,15 @@
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Descripción del Plan<span class="sp-requerido">*</span></span>
-                        <textarea id="descripcion_plan" name="descripcion_plan" rows="1"
+                        <textarea id="descripcion_plan" [(ngModel)]="planObj.descripcion_plan" name="descripcion_plan" rows="1"
                             class="tooltips-general material-control" placeholder="Persuasivo " required=""
                             data-toggle="tooltip" data-placement="top" title="Escriba la descripcion del plan"
                             onKeyUp="this.value = this.value.toUpperCase();"></textarea>
                         <span class="highlight"></span>
                         <span class="bar"></span>
+
+                        <!-- <input type="text" class="form-control"  [(ngModel)]="bookingObj.name" /> -->
+
                     </div>
                 </div>
             </div>
@@ -72,7 +75,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
-                        <input id="area_investigacion" name="area_investigacion" min="0" type="number"
+                        <input [(ngModel)]="planObj.valor_desde" id="valor_desde"  name="valor_desde" min="0" type="number"
                             class="tooltips-general material-control" placeholder="Por ejemplo: 10" required=""
                             maxlength="70" data-toggle="tooltip" data-placement="top" title="Escriba la cantidad"
                             onKeyUp="this.value = this.value.toUpperCase();">
@@ -83,13 +86,15 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
-                        <input id="area_investigacion" name="area_investigacion" min="0" type="number"
+                        <input [(ngModel)]="planObj.valor_hasta" id="valor_hasta"  name="valor_hasta" min="0" type="number"
                             class="tooltips-general material-control" placeholder="Por ejemplo: 10" required=""
                             maxlength="70" data-toggle="tooltip" data-placement="top" title="Escriba la cantidad"
                             onKeyUp="this.value = this.value.toUpperCase();">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>Valor hasta<span class="sp-requerido">*</span></label>
+
+
                     </div>
                 </div>
             </div>
@@ -105,29 +110,6 @@
                     <span class="bar"></span>
                 </div>
             </div>
-
-            <!-- <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="group-material">
-                        <input id="direccion" name="direccion" type="text" class="material-control tooltips-general" placeholder="Por ejemplo: Benalcázar 2340 y 9 de Octubre" required="" maxlength="100" data-toggle="tooltip" data-placement="top" title="Escriba la dirección" onKeyUp="this.value = this.value.toUpperCase();"> 
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Dirección <span class="sp-requerido">*</span></label>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="group-material">
-                        <input id="direccion" name="direccion" type="text" class="material-control tooltips-general" placeholder="Por ejemplo: Benalcázar 2340 y 9 de Octubre" required="" maxlength="100" data-toggle="tooltip" data-placement="top" title="Escriba la dirección" onKeyUp="this.value = this.value.toUpperCase();"> 
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Dirección <span class="sp-requerido">*</span></label>
-                    </div>
-                </div>  -->
-
-            <div class="form-group">
-
-
-            </div>
-
             <div class="row">
                 <div class="col-xs-12">
                     <p class="text-center">
