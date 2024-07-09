@@ -13,7 +13,7 @@
                         <span>Tipo de proceso<span class="sp-requerido">*</span></span>
                         <select name="id_tipo_proceso" id="id_tipo_proceso" class="tooltips-general material-control"
                             required="" data-toggle="tooltip" data-placement="top" title="Elija el tipo de proceso"
-                            onchange="javascript:seleccionarMedida();">
+                           >
                             <option value="" disabled="" selected="">Selecciona tipo de proceso</option>
                             <option [value]="dato" *ngFor="let dato of tipoProcesoList">
                                 {{dato.tipoProcesoId}}
@@ -28,14 +28,13 @@
                         <span>Tipo de plan<span class="sp-requerido">*</span></span>
                         <select name="id_tipo_plan" id="id_tipo_plan" class="tooltips-general material-control"
                             required="" data-toggle="tooltip" data-placement="top" title="Elija tipo de plan"
-                            onchange="javascript:seleccionarMedida();">
+                            >
                             <option value="" disabled="" selected="">Selecciona el tipo de plan</option>
                             <option [value]="dato" *ngFor="let dato of tipoPlanList">
                                 {{dato.tipoPlanId}}
                                 {{dato.descripcionPlan}}
                             </option>
                         </select>
-                        <input type="hidden" name="unidad_medida" id="unidad_medida" />
                     </div>
                 </div>
             </div>
@@ -43,58 +42,64 @@
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Tipo de contribuyente<span class="sp-requerido">*</span></span>
-                        <select name="id_tipo_contribuyente" id="id_tipo_contribuyente"
-                            class="tooltips-general material-control" required="" data-toggle="tooltip"
-                            data-placement="top" title="Elija el tipo de contribuyente" onchange="">
+                        <select [(ngModel)]="planObj.tipo_contribuyente_id" name="id_tipo_contribuyente"
+                            id="id_tipo_contribuyente" class="tooltips-general material-control" required=""
+                            data-toggle="tooltip" data-placement="top" title="Elija el tipo de contribuyente"
+                            onchange="">
                             <option value="" disabled="" selected="">Selecciona el tipo de contribuyente</option>
                             <option [value]="dato" *ngFor="let dato of tipoContribuyenteList">
                                 {{dato.tipoContribuyenteId}}
                                 {{dato.descripcionContribuyente}}
                             </option>
                         </select>
-                        <input type="hidden" name="unidad_medida" id="unidad_medida" />
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Descripción del Plan<span class="sp-requerido">*</span></span>
-                        <textarea id="descripcion_plan" [(ngModel)]="planObj.descripcion_plan" name="descripcion_plan" rows="1"
-                            class="tooltips-general material-control" placeholder="Persuasivo " required=""
+                        <textarea id="descripcion_plan" [(ngModel)]="planObj.descripcion_plan" name="descripcion_plan"
+                            rows="1" class="tooltips-general material-control" placeholder="Persuasivo " required=""
                             data-toggle="tooltip" data-placement="top" title="Escriba la descripcion del plan"
                             onKeyUp="this.value = this.value.toUpperCase();"></textarea>
                         <span class="highlight"></span>
                         <span class="bar"></span>
-
-                        <!-- <input type="text" class="form-control"  [(ngModel)]="bookingObj.name" /> -->
-
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="group-material">
-                        <input [(ngModel)]="planObj.valor_desde" id="valor_desde"  name="valor_desde" min="0" type="number"
-                            class="tooltips-general material-control" placeholder="Por ejemplo: 10" required=""
-                            maxlength="70" data-toggle="tooltip" data-placement="top" title="Escriba la cantidad"
-                            onKeyUp="this.value = this.value.toUpperCase();">
+                        <input [(ngModel)]="planObj.valor_desde" id="valor_desde" name="valor_desde" min="0"
+                            type="number" class="tooltips-general material-control" placeholder="Por ejemplo: 10"
+                            required="" maxlength="70" data-toggle="tooltip" data-placement="top"
+                            title="Escriba la cantidad" onKeyUp="this.value = this.value.toUpperCase();">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>Valor desde<span class="sp-requerido">*</span></label>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="group-material">
-                        <input [(ngModel)]="planObj.valor_hasta" id="valor_hasta"  name="valor_hasta" min="0" type="number"
-                            class="tooltips-general material-control" placeholder="Por ejemplo: 10" required=""
-                            maxlength="70" data-toggle="tooltip" data-placement="top" title="Escriba la cantidad"
-                            onKeyUp="this.value = this.value.toUpperCase();">
+                        <input [(ngModel)]="planObj.valor_hasta" id="valor_hasta" name="valor_hasta" min="0"
+                            type="number" class="tooltips-general material-control" placeholder="Por ejemplo: 10"
+                            required="" maxlength="70" data-toggle="tooltip" data-placement="top"
+                            title="Escriba la cantidad" onKeyUp="this.value = this.value.toUpperCase();">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>Valor hasta<span class="sp-requerido">*</span></label>
-
-
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="group-material">
+                        <input [(ngModel)]="planObj.materialidad" id="materialidad" name="materialidad" min="0"
+                            type="number" class="tooltips-general material-control" placeholder="Por ejemplo: 10"
+                            required="" maxlength="70" data-toggle="tooltip" data-placement="top"
+                            title="Escriba la cantidad" onKeyUp="this.value = this.value.toUpperCase();">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Materialidad<span class="sp-requerido">*</span></label>
                     </div>
                 </div>
             </div>
@@ -102,23 +107,59 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="group-material">
                     <span>Ejercicio fiscal<span class="sp-requerido">*</span></span>
-                    <textarea id="nombre_propuesta" name="nombre_propuesta" rows="2"
-                        class="tooltips-general material-control" placeholder="Persuasivo " required=""
-                        data-toggle="tooltip" data-placement="top" title="Escriba la descripcion del plan"
-                        onKeyUp="this.value = this.value.toUpperCase();"></textarea>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
+                </div>
+                <div class="row">
+                    <!-- checkbox -->
+                    <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <label><input [(ngModel)]="planObj.checkbox_2018" type="checkbox" name="opciones_analisis[]"
+                                    value="1"> 2018</label>
+                        </div>
+                    </div>
+                    <!-- End: checkbox -->
+                    <!-- checkbox -->
+                    <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <label><input [(ngModel)]="planObj.checkbox_2019" type="checkbox" name="opciones_analisis[]"
+                                    value="2"> 2019</label>
+                        </div>
+                    </div>
+                    <!-- End: checkbox -->
+                    <!-- checkbox -->
+                    <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <label><input type="checkbox" name="opciones_analisis[]" value="3"> 2020</label>
+                        </div>
+                    </div>
+                    <!-- End: checkbox -->
+                    <!-- checkbox -->
+                    <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <label><input type="checkbox" name="opciones_analisis[]" value="4"> 2021</label>
+                        </div>
+                    </div>
+                    <!-- End: checkbox -->
+                    <!-- checkbox -->
+                    <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <label><input type="checkbox" name="opciones_analisis[]" value="5"> 2022</label>
+                        </div>
+                    </div>
+                    <!-- End: checkbox -->
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-xs-12">
                     <p class="text-center">
                         <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i
                                 class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
                         <button type="button" id="guardar" value="Guardar" class="btn btn-primary"
+                            (click)="getPlanes()"><i class="zmdi zmdi-arrow-right"></i> &nbsp;&nbsp; Consultar Registros
+                            Plan</button>
+                        <button type="button" id="siguiente" value="Siguiente" class="btn btn-primary"
                             (click)="getPlanes()"><i class="zmdi zmdi-arrow-right"></i> &nbsp;&nbsp; Ejecutar
                             Plan</button>
-                        <!--<button type="button" value="Agregar"  id="agregar" class="btn btn-success"><i class="zmdi zmdi-plus-circle"></i> &nbsp; Agregar</button>-->
                     </p>
                 </div>
             </div>

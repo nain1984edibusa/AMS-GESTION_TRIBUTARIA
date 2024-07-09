@@ -13,6 +13,7 @@ export class PlanesService {
   TIPOPROCESO_URL: string = environment.tipoProcesoUrl;
   TIPOPLAN_URL: string = environment.tipoPlanUrl;
   PLANEMAILINSCRIPCION_URL: string = environment.planEmailInscripcionUrl;
+  PARAMETRO_URL: string = environment.parametroUrl;
   constructor(private httpClient: HttpClient) { }
 
   findAll(): Observable<any> {
@@ -33,6 +34,15 @@ export class PlanesService {
 
   getFindAllPlanInscripcion(obj: any): Observable<any> {
     return this.httpClient.get(this.PLANEMAILINSCRIPCION_URL).pipe(res => res);
+  }
+
+
+  getFindAllParametro(): Observable<any> {
+    return this.httpClient.get(this.PARAMETRO_URL).pipe(res => res);
+  }
+
+  getFindByParametro(id:number): Observable<any> {
+    return this.httpClient.get(this.PARAMETRO_URL + '/' + id ).pipe(res => res);
   }
 
   // login(obj: any) {

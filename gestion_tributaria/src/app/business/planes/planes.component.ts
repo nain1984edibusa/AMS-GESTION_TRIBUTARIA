@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { PlanesService } from './services/planes.service';
-import { PlanesInterface, TipoContribuyenteInterface, TipoPlanInterface, TipoProcesoInterface } from './interfaces/planes.interface';
+import { PlanesInterface, TipoContribuyenteInterface, TipoPlanInterface, TipoProcesoInterface, ParametroInterface } from './interfaces/planes.interface';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { Config } from 'datatables.net';
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule, DataTablesModule, FormsModule] ,
+  imports: [CommonModule, DataTablesModule, FormsModule],
   templateUrl: './planes.component.html',
   styleUrl: './planes.component.scss'
 })
@@ -24,6 +24,7 @@ export default class PlanesComponent implements OnInit {
   tipoProcesoList: TipoProcesoInterface[] = [];
   tipoPlanList: TipoPlanInterface[] = [];
   planListEmailInscripcion: PlanesInterface[] = [];
+  materialidad: ParametroInterface[] = [];
 
   dtOptions: Config = {};
   data: any = [];
@@ -33,9 +34,13 @@ export default class PlanesComponent implements OnInit {
   apiData: any;
 
   planObj: any = {
+
+    "tipo_contribuyente_id": "",
     "descripcion_plan": "",
     "valor_desde": "",
-    "valor_hasta": ""
+    "valor_hasta": "",
+    "checkbox_2018": "",
+    "checkbox_2019": ""
   };
 
 
@@ -44,14 +49,16 @@ export default class PlanesComponent implements OnInit {
   ) { }
 
 
-  
+
   ngOnInit(): void {
     this.getTipoContribuyente()
     this.getTipoProceso()
     this.getTipoPlan()
+    //this.getParametro()
+    this.getParametroId()
     //this.getPlanes() 
   }
-  // this.ordersService.getOrders(this.bookingObj).subscribe((res: any) => {
+  
   getPlanes() {
     debugger
     alert('hola');
@@ -77,7 +84,7 @@ export default class PlanesComponent implements OnInit {
       columns: [
         { title: 'RUC', data: 'numeroRuc' },
         { title: 'Razón Social', data: 'razonSocial' },
-        { title: 'Periodo', data: 'periodo' },
+        { title: 'Periodo', data: 'anio' },
         { title: 'Base Imponible', data: 'baseImponible' },
         { title: 'Total Patrimonio Neto', data: 'totalPatrimonioNeto' },
         { title: 'Potencial Recaudar', data: 'potencialRecaudar' }
@@ -132,6 +139,31 @@ export default class PlanesComponent implements OnInit {
     })
   }
 
+
+  getParametroId() {
+    debugger
+    this.planesService.getFindByParametro(45).subscribe({
+      next: (result) => {
+        //this.tipoPlanList = result;
+        this.planObj.materialidad = result.valorNumerico;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  getParametro() {
+    debugger
+    this.planesService.getFindAllParametro().subscribe({
+      next: (result) => {
+        this.tipoPlanList = result;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
 
   // onLogin() {
   //   debugger;

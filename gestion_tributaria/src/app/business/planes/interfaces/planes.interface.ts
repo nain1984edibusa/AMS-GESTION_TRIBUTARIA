@@ -1,12 +1,4 @@
 export interface PlanesInterface {
-    // id: number;
-    // razonSocial: string;
-    // ruc: string;
-    // direccion: string;
-    // telefono: string;
-    // correo: string;
-    // estado: string
-
     numeroRuc: number;
     razonSocial: string;
     periodo: string;
@@ -34,7 +26,11 @@ export interface PlanesInterface {
   export interface TipoTributoInterface {
     tributoId: number;
     descripcionTributo: string
-       
+  }
+
+  export interface ParametroInterface {
+    parametroId: number;
+    valorNumerico: string
   }
   
   
