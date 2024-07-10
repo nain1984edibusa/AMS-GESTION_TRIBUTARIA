@@ -7,35 +7,17 @@
                 <p class="instrucciones_formularios_ct">Recuerde que los campos marcados con <span
                         class="sp-requerido">*</span> son requeridos.</p>
             </div>
-
-            <!-- <mat-form-field class="select-width">
-                <mat-label>Departamento</mat-label>
-                <select matNativeControl required [(ngModel)]="selectedDepartament.code" (change)="onSelect($event.target.value)">
-                    <option *ngFor="let departments of ubigeo.departamentos" value={{departments.code}}>{{departments.description | titlecase}}</option>
-                </select>
-            </mat-form-field> -->
-
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Tipo de proceso<span class="sp-requerido">*</span></span>
-                        <!-- <select [(ngModel)]="planObj.tipo_proceso_id" name="id_tipo_proceso" id="id_tipo_proceso"
-                            class="tooltips-general material-control" required="" data-toggle="tooltip"
-                            data-placement="top" title="Elija el tipo de proceso"
-                            (change)="onSelect($event.target.value)">
-                            <option *ngFor="let dato of tipoProcesoList" value={{dato.tipoProcesoId}}>
-                                {{dato.descripcionProceso | titlecase}}</option>
-
-
+                        <select id="tipo_proceso_id" name="tipo_proceso_id" [(ngModel)]="planObj.tipo_proceso_id"
+                            class='tooltips-general material-control' required="" data-toggle="tooltip"
+                            data-placement="top" title="Elija tipo de plan" #mySelect
+                            (change)='onOptionsSelected(mySelect.value)'>
                             <option value="" disabled="" selected="">Selecciona tipo de proceso</option>
-                            <option [value]="dato" *ngFor="let dato of tipoProcesoList">
-                                {{dato.tipoProcesoId}}
-                                {{dato.descripcionProceso}}
-                            </option> 
-                        </select> -->
-                        <select class='tooltips-general material-control' #mySelect (change)='onOptionsSelected(mySelect.value)'>
-                            <option value="" disabled="" selected="">Selecciona tipo de proceso</option>
-                            <option class='option' *ngFor='let option of tipoProcesoList' [value]="option.tipoProcesoId">
+                            <option class='option' *ngFor='let option of tipoProcesoList'
+                                [value]="option.tipoProcesoId">
                                 {{option.descripcionProceso}}</option>
                         </select>
                     </div>
@@ -43,11 +25,15 @@
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Tipo de plan<span class="sp-requerido">*</span></span>
-                        <select name="id_tipo_plan" id="id_tipo_plan" class="tooltips-general material-control"
-                            required="" data-toggle="tooltip" data-placement="top" title="Elija tipo de plan">
+                        <select name="tipo_plan_id" id="tipo_plan_id" [(ngModel)]="planObj.tipo_plan_id"
+                            class="tooltips-general material-control" required="" data-toggle="tooltip"
+                            data-placement="top" title="Elija tipo de plan" #selectTipoPlan
+                            (change)='onSelectTipoPlan(selectTipoPlan.value)'>
                             <option value="" disabled="" selected="">Selecciona el tipo de plan</option>
-                            <option class='option' *ngFor='let option of tipoPlanListSelect' [value]="option.tipoPlanId">
-                                {{option.descripcionPlan}}</option>
+                            <option class='option' *ngFor='let option of tipoPlanListSelect'
+                                [value]="option.tipoPlanId">
+                                {{option.descripcionPlan}}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -56,13 +42,15 @@
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Tipo de contribuyente<span class="sp-requerido">*</span></span>
-                        <select id="id_tipo_contribuyente" [(ngModel)]="planObj.tipo_contribuyente_id" name="id_tipo_contribuyente"
-                            class="tooltips-general material-control" required="" data-toggle="tooltip" data-placement="top" title="Elija el tipo de contribuyente"
-                            onchange="">
+                        <select id="tipo_contribuyente_id" [(ngModel)]="planObj.tipo_contribuyente_id"
+                            name="tipo_contribuyente_id" class="tooltips-general material-control" required=""
+                            data-toggle="tooltip" data-placement="top" title="Elija el tipo de contribuyente"
+                            #selectTipoContribuyente
+                            (change)='onSelectTipoContribuyente(selectTipoContribuyente.value)'>
                             <option value="" disabled="" selected="">Selecciona el tipo de contribuyente</option>
-                            <option [value]="dato" *ngFor="let dato of tipoContribuyenteList">
-                                {{dato.tipoContribuyenteId}}
-                                {{dato.descripcionContribuyente}}
+                            <option class='option' *ngFor='let option of tipoContribuyenteList'
+                                [value]="option.tipoContribuyenteId">
+                                {{option.descripcionContribuyente}}
                             </option>
                         </select>
                     </div>

@@ -35,15 +35,15 @@ export default class PlanesComponent implements OnInit {
   apiData: any;
 
   planObj: any = {
-    "tipo_proceso_id": "",
-    "tipo_contribuyente_id": "",
+    "tipo_proceso_id": 0,
+    "tipo_plan_id": 0,
+    "tipo_contribuyente_id": 0,
     "descripcion_plan": "",
     "valor_desde": "",
     "valor_hasta": "",
     "checkbox_2018": "",
     "checkbox_2019": ""
   };
-
 
   constructor(private planesService: PlanesService,
     private httpClient: HttpClient
@@ -146,14 +146,23 @@ export default class PlanesComponent implements OnInit {
   onOptionsSelected(value: any) {
     this.tipoPlanListSelect= [];
     console.log("the selected value is " + value);
+    this.planObj.tipo_proceso_id = value;
     this.tipoPlanList.forEach(x => {
-
       if (x.tipoProcesoId == value) {
-        debugger
         this.tipoPlanListSelect.push(x);
       }
     });
   }
+
+  onSelectTipoPlan(value: any) {
+    console.log("the selected value is " + value);
+    this.planObj.tipo_plan_id = value;
+  }
+  onSelectTipoContribuyente(value: any) {
+    console.log("the selected value is " + value);
+    this.planObj.tipo_contribuyente_id = value;
+  }
+
 
   // onSelect(this.planObj.tipo_proceso_id: any): void {
   //   debugger
