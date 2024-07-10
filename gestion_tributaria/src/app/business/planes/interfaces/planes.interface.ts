@@ -20,6 +20,7 @@ export interface PlanesInterface {
 
   export interface TipoPlanInterface {
     tipoPlanId: number;
+    tipoProcesoId: number;
     descripcionPlan: string
   }
 

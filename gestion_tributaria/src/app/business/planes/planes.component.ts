@@ -23,6 +23,7 @@ export default class PlanesComponent implements OnInit {
   tipoContribuyenteList: TipoContribuyenteInterface[] = [];
   tipoProcesoList: TipoProcesoInterface[] = [];
   tipoPlanList: TipoPlanInterface[] = [];
+  tipoPlanListSelect: TipoPlanInterface[] = [];
   planListEmailInscripcion: PlanesInterface[] = [];
   materialidad: ParametroInterface[] = [];
 
@@ -34,7 +35,7 @@ export default class PlanesComponent implements OnInit {
   apiData: any;
 
   planObj: any = {
-
+    "tipo_proceso_id": "",
     "tipo_contribuyente_id": "",
     "descripcion_plan": "",
     "valor_desde": "",
@@ -58,7 +59,7 @@ export default class PlanesComponent implements OnInit {
     this.getParametroId()
     //this.getPlanes() 
   }
-  
+
   getPlanes() {
     debugger
     alert('hola');
@@ -128,6 +129,7 @@ export default class PlanesComponent implements OnInit {
       }
     })
   }
+
   getTipoPlan() {
     this.planesService.getFindAllTipoPlan().subscribe({
       next: (result) => {
@@ -139,9 +141,39 @@ export default class PlanesComponent implements OnInit {
     })
   }
 
+  //this.planesService.getFindAllPlanInscripcion(this.planObj).subscribe({
+
+  onOptionsSelected(value: any) {
+    this.tipoPlanListSelect= [];
+    console.log("the selected value is " + value);
+    this.tipoPlanList.forEach(x => {
+
+      if (x.tipoProcesoId == value) {
+        debugger
+        this.tipoPlanListSelect.push(x);
+      }
+    });
+  }
+
+  // onSelect(this.planObj.tipo_proceso_id: any): void {
+  //   debugger
+  //   console.log(code);
+  //   this.tipoPlanList.find(x =>x.tipoProcesoId == code); // con esto ya hemos obtenido las provincias del departamento seleccionado, ahora solo falta ponerlo en la plantilla html.
+  // } 
+  // getTipoPlanByProcesoId(code: any) {
+  //   this.planesService.getFindAllTipoPlan().subscribe({
+  //     next: (result) => {
+  //       this.tipoPlanList = result;
+  //       this.tipoPlanList.find(x =>x.tipoProcesoId == code)
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     }
+  //   })
+  // }
+
 
   getParametroId() {
-    debugger
     this.planesService.getFindByParametro(45).subscribe({
       next: (result) => {
         //this.tipoPlanList = result;
