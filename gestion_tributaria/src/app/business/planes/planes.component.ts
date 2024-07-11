@@ -42,14 +42,13 @@ export default class PlanesComponent implements OnInit {
     "valor_desde": "",
     "valor_hasta": "",
     "checkbox_2018": "",
-    "checkbox_2019": ""
+    "checkbox_2019": "",
+    "numeroRuc" : "1756235618001",
   };
 
   constructor(private planesService: PlanesService,
     private httpClient: HttpClient
   ) { }
-
-
 
   ngOnInit(): void {
     this.getTipoContribuyente()
@@ -65,6 +64,25 @@ export default class PlanesComponent implements OnInit {
     alert('hola');
     var objDivTributo = $('#divTributo');
     this.planesService.getFindAllPlanInscripcion(this.planObj).subscribe({
+      next: (result) => {
+        debugger
+        console.log(result);
+        this.apiData = result;
+
+        this.initializeDataTable();
+        objDivTributo.attr("style", "display:;");
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  getFindByNumeroRuc() {
+    debugger
+    alert('filtrar por RUC');
+    var objDivTributo = $('#divTributo');
+    this.planesService.getFindByNumeroRuc(this.planObj).subscribe({
       next: (result) => {
         debugger
         console.log(result);
@@ -141,8 +159,6 @@ export default class PlanesComponent implements OnInit {
     })
   }
 
-  //this.planesService.getFindAllPlanInscripcion(this.planObj).subscribe({
-
   onOptionsSelected(value: any) {
     this.tipoPlanListSelect= [];
     console.log("the selected value is " + value);
@@ -162,25 +178,6 @@ export default class PlanesComponent implements OnInit {
     console.log("the selected value is " + value);
     this.planObj.tipo_contribuyente_id = value;
   }
-
-
-  // onSelect(this.planObj.tipo_proceso_id: any): void {
-  //   debugger
-  //   console.log(code);
-  //   this.tipoPlanList.find(x =>x.tipoProcesoId == code); // con esto ya hemos obtenido las provincias del departamento seleccionado, ahora solo falta ponerlo en la plantilla html.
-  // } 
-  // getTipoPlanByProcesoId(code: any) {
-  //   this.planesService.getFindAllTipoPlan().subscribe({
-  //     next: (result) => {
-  //       this.tipoPlanList = result;
-  //       this.tipoPlanList.find(x =>x.tipoProcesoId == code)
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
-  //     }
-  //   })
-  // }
-
 
   getParametroId() {
     this.planesService.getFindByParametro(45).subscribe({
@@ -206,21 +203,6 @@ export default class PlanesComponent implements OnInit {
     })
   }
 
-  // onLogin() {
-  //   debugger;
-  //   alert('hola');
-  //   this.planesService.getFindAllPlanInscripcion().subscribe((res:any)=>{
-  //     if(res.result) {
-  //       //localStorage.setItem('hotelUser',JSON.stringify(res.data));
-  //       //this.router.navigateByUrl('/dashboard');
-  //     } else {
-  //       alert('Check User Credentials')
-  //     }
-  //   },
-  //   error=> {
-
-  //   })
-  // }
   capturar() {
 
   }

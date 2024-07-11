@@ -35,7 +35,11 @@ export class PlanesService {
   getFindAllPlanInscripcion(obj: any): Observable<any> {
     return this.httpClient.get(this.PLANEMAILINSCRIPCION_URL).pipe(res => res);
   }
-
+  
+  getFindByNumeroRuc(obj: any): Observable<any> {
+    debugger
+    return this.httpClient.get(this.PLANEMAILINSCRIPCION_URL + '/' + obj.numeroRuc ).pipe(res => res);
+  }
 
   getFindAllParametro(): Observable<any> {
     return this.httpClient.get(this.PARAMETRO_URL).pipe(res => res);
