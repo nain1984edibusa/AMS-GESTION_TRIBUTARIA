@@ -12,6 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
 </head> 
+<app-header></app-header>
+
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Gestión Planes Tributarios</a>
@@ -40,5 +43,8 @@
     </div>
   </div>
 </nav>
+<router-outlet></router-outlet>
+<div class="fixed-bottom">
+  <app-footer></app-footer>
+</div>
 
-<router-outlet />
