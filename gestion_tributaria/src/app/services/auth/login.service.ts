@@ -12,9 +12,11 @@ import { LoginRequest } from './loginRequest';
 })
 export class LoginService {
 
+  /* COMUNICACION ENTRE COMPONENTES DE ANGULAR */
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
 
+  /* SESIONES */
   constructor(private http: HttpClient) { 
     this.currentUserLoginOn=new BehaviorSubject<boolean>(sessionStorage.getItem("token")!=null);
     this.currentUserData=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");

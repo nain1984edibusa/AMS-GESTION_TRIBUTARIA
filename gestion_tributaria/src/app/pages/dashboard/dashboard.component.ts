@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoginService } from '../../services/auth/login.service';
 import { NavComponent } from '../../shared/nav/nav.component';
-import { NgIf } from '@angular/common';
 import { PersonalDetailsComponent } from '../../components/personal-details/personal-details.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [ NavComponent, NgIf, PersonalDetailsComponent],
+  imports: [ NgIf,NavComponent, PersonalDetailsComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

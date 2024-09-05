@@ -10,8 +10,8 @@ export const environment = {
     planEmailInscripcionUrl: 'http://localhost:8887/ms-negocio-gestion-persuasivo-email-inscripcion/api/v1/email-inscripcion',
 
 
-    urlHost:'http://localhost:8080/',
-    urlApi: 'http://localhost:8080/api/v1/',
+    urlHost:'http://localhost:9090/',
+    urlApi: 'http://localhost:9090/api/v1/',
     userId:1
 
   };

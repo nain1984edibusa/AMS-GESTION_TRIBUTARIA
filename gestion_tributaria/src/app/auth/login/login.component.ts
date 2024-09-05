@@ -8,40 +8,40 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgIf, ReactiveFormsModule], 
+  imports: [NgIf, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export  class LoginComponent implements OnInit {
-  loginError:string="";
-  loginForm=this.formBuilder.group({
-    username:['',[Validators.required,Validators.email]],
-    password: ['',Validators.required],
+
+export class LoginComponent implements OnInit {
+  loginError: string = "";
+  loginForm = this.formBuilder.group({
+    username: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
   })
-  constructor(private formBuilder:FormBuilder, private router:Router, private loginService: LoginService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
 
-  get email(){
+  get email() {
     return this.loginForm.controls.username;
   }
 
-  get password()
-  {
+  get password() {
     return this.loginForm.controls.password;
   }
 
-  login(){
-    if(this.loginForm.valid){
-      this.loginError="";
+  login() {
+    if (this.loginForm.valid) {
+      this.loginError = "";
       this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
         next: (userData) => {
           console.log(userData);
         },
         error: (errorData) => {
           console.error(errorData);
-          this.loginError=errorData;
+          this.loginError = errorData;
         },
         complete: () => {
           console.info("Login completo");
@@ -49,12 +49,10 @@ export  class LoginComponent implements OnInit {
           this.loginForm.reset();
         }
       })
-
     }
-    else{
+    else {
       this.loginForm.markAllAsTouched();
       alert("Error al ingresar los datos.");
     }
   }
-
 }
