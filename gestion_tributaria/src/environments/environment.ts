@@ -7,7 +7,12 @@ export const environment = {
     tipoProcesoUrl: 'http://localhost:8887/ms-negocio-gestion-catalogo/api/v1/tipo-proceso',
     tipoPlanUrl: 'http://localhost:8887/ms-negocio-gestion-catalogo/api/v1/tipo-plan',
     parametroUrl: 'http://localhost:8887/ms-negocio-gestion-catalogo/api/v1/parametro',
-    planEmailInscripcionUrl: 'http://localhost:8887/ms-negocio-gestion-persuasivo-email-inscripcion/api/v1/email-inscripcion'
+    planEmailInscripcionUrl: 'http://localhost:8887/ms-negocio-gestion-persuasivo-email-inscripcion/api/v1/email-inscripcion',
+
+
+    urlHost:'http://localhost:8080/',
+    urlApi: 'http://localhost:8080/api/v1/',
+    userId:1
 
   };
   
