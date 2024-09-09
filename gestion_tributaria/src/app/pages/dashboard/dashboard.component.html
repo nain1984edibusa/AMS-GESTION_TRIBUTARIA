@@ -2,34 +2,33 @@
 <p *ngIf="!userLoginOn" class="alert alert-danger">Usuario NO autenticado</p>
 <p *ngIf="userLoginOn" class="alert alert-success">Usuario Autenticado</p> 
 
- <!-- <div class="card ">
+ <div *ngIf="userLoginOn" class="card ">
     <div class="card-header">
         Datos Personales
     </div>
     <div class="card-body m-0">
-        <app-personal-details></app-personal-details>
+        <app-planes></app-planes>
     </div>
 
 </div>
-<div class="card">
+<!-- <div class="card">
     <div class="card-header">
         Perfil Profesional
     </div>
     <div class="card-body m-0">
 
     </div>
-</div>
-<div class="card">
+</div> -->
+<!-- <div class="card">
     <div class="card-header">
-        Datos Acad�micos
+        Datos Académicos
     </div>
     <div class="card-body m-0">
 
     </div>
+</div> -->
 
-</div>
-
-<div class="card">
+<!-- <div class="card">
     <div class="card-header">
         Experiencia Laboral
     </div>

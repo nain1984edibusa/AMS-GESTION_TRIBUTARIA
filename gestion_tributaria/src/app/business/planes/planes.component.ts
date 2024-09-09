@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-orders',
+  selector: 'app-planes',
   standalone: true,
   imports: [CommonModule, DataTablesModule, FormsModule],
   templateUrl: './planes.component.html',

@@ -1,8 +1,8 @@
 <p *ngIf="errorMessage.length!=0" class="text-danger">{{errorMessage}}</p>
-<div *ngIf="(userLoginOn && !editMode) || !userLoginOn">
+<div *ngIf="(userLoginOn && editMode) || userLoginOn">
     <p><b> Nombre: </b> {{user?.firstname}} </p>
     <p><b> Apellido: </b> {{user?.lastname}}</p>
-    <p><b> Pais: </b> {{user?.country}}</p>
+    <p><b> PaÃ­s: </b> {{user?.country}}</p>
     <button *ngIf="userLoginOn && !editMode" (click)="editMode=true"  class="btn btn-dark"><img
         src="https://cdn.icon-icons.com/icons2/1572/PNG/96/3592815-compose-create-edit-edit-file-office-pencil-writing_107734.png"
         width="8%" alt="editar" />Editar Datos Personales</button>
@@ -34,12 +34,12 @@
     </div>
     </div>
     <div class="form-group row border-bottom pb-3" >
-        <label for="inputCountry" class="col-sm-1 col-form-label">País</label>
+        <label for="inputCountry" class="col-sm-1 col-form-label">Paï¿½s</label>
         <div class="col-sm-11">
         <input type="text" formControlName="country" class="form-control" id="inputCountry" >
         <div *ngIf="country.invalid && (country.dirty || country.touched)" class="text-danger">
             <div *ngIf="country.errors?.['required']">
-                El País es requerido.
+                El Paï¿½s es requerido.
             </div>
         </div>
     </div>
