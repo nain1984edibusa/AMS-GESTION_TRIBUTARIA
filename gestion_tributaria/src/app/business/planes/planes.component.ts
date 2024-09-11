@@ -43,7 +43,13 @@ export default class PlanesComponent implements OnInit {
     "valor_hasta": "",
     "checkbox_2018": "",
     "checkbox_2019": "",
-    "numeroRuc" : "1756235618001",
+    "numeroRuc" : "1792069025001",
+    
+    "anio": "2022",
+    "personaSociedad": "",
+    "obligado": ""
+
+
   };
 
   constructor(private planesService: PlanesService,
@@ -196,6 +202,50 @@ export default class PlanesComponent implements OnInit {
     this.planesService.getFindAllParametro().subscribe({
       next: (result) => {
         this.tipoPlanList = result;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  getInscripcionVtaFindByNumeroRuc() {
+    debugger
+    alert('filtrar por RUC');
+    var objDivTributo = $('#divTributo');
+    this.planesService.getInscripcionVtaFindByNumeroRuc(this.planObj).subscribe({
+      next: (result) => {
+        debugger
+        console.log(result);
+        this.apiData = result;
+
+        this.initializeDataTable();
+        objDivTributo.attr("style", "display:;");
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  getInscripcionVtaFindByAnioObligadoPersonaSociedad() {
+    debugger
+    alert('filtrar por RUC');
+    var objDivTributo = $('#divTributo');
+
+    if (this.planObj.tipo_contribuyente_id == 2) //NaturalNoObligado
+      {
+        this.planObj.personaSociedad = "PNL";
+        this.planObj.obligado = "N";
+      }
+    this.planesService.getInscripcionVtaFindByAnioObligadoPersonaSociedad(this.planObj).subscribe({
+      next: (result) => {
+        debugger
+        console.log(result);
+        this.apiData = result;
+
+        this.initializeDataTable();
+        objDivTributo.attr("style", "display:;");
       },
       error: (err) => {
         console.log(err);

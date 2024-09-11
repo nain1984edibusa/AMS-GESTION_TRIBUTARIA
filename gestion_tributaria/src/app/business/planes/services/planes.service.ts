@@ -14,6 +14,10 @@ export class PlanesService {
   TIPOPLAN_URL: string = environment.tipoPlanUrl;
   PLANEMAILINSCRIPCION_URL: string = environment.planEmailInscripcionUrl;
   PARAMETRO_URL: string = environment.parametroUrl;
+  PLANINSCRIPCIONVTANUMERORUC_URL: string = environment.planInscripcionVtaNumeroRucUrl;
+  PLANINSCRIPCIONVTA_URL: string = environment.planInscripcionVtaUrl;
+
+  
   constructor(private httpClient: HttpClient) { }
 
   findAll(): Observable<any> {
@@ -49,7 +53,13 @@ export class PlanesService {
     return this.httpClient.get(this.PARAMETRO_URL + '/' + id ).pipe(res => res);
   }
 
-  // login(obj: any) {
-  //   return this.http.post(this.apiEndPoint + 'Login', obj);
-  // }
+  getInscripcionVtaFindByNumeroRuc(obj: any): Observable<any> {
+    debugger
+    return this.httpClient.get(this.PLANINSCRIPCIONVTANUMERORUC_URL + '/' + obj.numeroRuc ).pipe(res => res);
+  }
+
+  getInscripcionVtaFindByAnioObligadoPersonaSociedad(obj: any): Observable<any> {
+    debugger
+    return this.httpClient.get(this.PLANINSCRIPCIONVTA_URL + '/' + obj.anio + '/' + obj.obligado + '/' + obj.personaSociedad ).pipe(res => res);
+  }
 }

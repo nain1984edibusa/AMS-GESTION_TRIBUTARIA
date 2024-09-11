@@ -8,6 +8,8 @@ export const environment = {
     tipoPlanUrl: 'http://localhost:8887/ms-negocio-gestion-catalogo/api/v1/tipo-plan',
     parametroUrl: 'http://localhost:8887/ms-negocio-gestion-catalogo/api/v1/parametro',
     planEmailInscripcionUrl: 'http://localhost:8887/ms-negocio-gestion-persuasivo-email-inscripcion/api/v1/email-inscripcion',
+    planInscripcionVtaNumeroRucUrl: 'http://localhost:8887/ms-negocio-gestion-inscripcion-vta/api/v1/inscripcion-vta/by-numeroRuc',
+    planInscripcionVtaUrl: 'http://localhost:8887/ms-negocio-gestion-inscripcion-vta/api/v1/inscripcion-vta/by-anio-obligado-personaSociedad',
 
 
     urlHost:'http://localhost:9090/',
