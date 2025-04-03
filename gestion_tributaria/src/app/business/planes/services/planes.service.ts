@@ -37,7 +37,7 @@ export class PlanesService {
   }
 
   getFindAllPlanInscripcion(obj: any): Observable<any> {
-    return this.httpClient.get(this.PLANEMAILINSCRIPCION_URL).pipe(res => res);
+    return this.httpClient.get(this.PLANINSCRIPCIONVTA_URL).pipe(res => res);
   }
   
   getFindByNumeroRuc(obj: any): Observable<any> {

@@ -85,12 +85,10 @@ export default class PlanesComponent implements OnInit {
   }
 
   getFindByNumeroRuc() {
-    debugger
     alert('filtrar por RUC');
     var objDivTributo = $('#divTributo');
     this.planesService.getFindByNumeroRuc(this.planObj).subscribe({
       next: (result) => {
-        debugger
         console.log(result);
         this.apiData = result;
 
@@ -186,7 +184,7 @@ export default class PlanesComponent implements OnInit {
   }
 
   getParametroId() {
-    this.planesService.getFindByParametro(45).subscribe({
+    this.planesService.getFindByParametro(1).subscribe({
       next: (result) => {
         //this.tipoPlanList = result;
         this.planObj.materialidad = result.valorNumerico;

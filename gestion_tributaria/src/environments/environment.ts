@@ -9,7 +9,7 @@ export const environment = {
     parametroUrl: 'http://localhost:8887/ms-parametrizacion/api/v1/parametro',
     planEmailInscripcionUrl: 'http://localhost:8887/ms-negocio-gestion-persuasivo-email-inscripcion/api/v1/email-inscripcion',
     planInscripcionVtaNumeroRucUrl: 'http://localhost:8887/ms-negocio-gestion-inscripcion-vta/api/v1/inscripcion-vta/by-numeroRuc',
-    planInscripcionVtaUrl: 'http://localhost:8887/ms-negocio-gestion-inscripcion-vta/api/v1/inscripcion-vta/by-anio-obligado-personaSociedad',
+    planInscripcionVtaUrl: 'http://localhost:8887/ms-negocio-gestion-inscripcion-vta/api/v1/inscripcion-vta',
 
 
     urlHost:'http://localhost:8080/',
