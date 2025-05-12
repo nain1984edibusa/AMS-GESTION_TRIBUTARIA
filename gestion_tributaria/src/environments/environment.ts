@@ -12,8 +12,8 @@ export const environment = {
     planInscripcionVtaUrl: 'http://localhost:8887/ms-negocio-gestion-inscripcion-vta/api/v1/inscripcion-vta',
 
 
-    urlHost:'http://localhost:8080/',
-    urlApi: 'http://localhost:8080/api/v1/',
+    urlHost:'http://localhost:8880/',
+    urlApi: 'http://localhost:8880/api/v1/',
     userId:1
 
   };
